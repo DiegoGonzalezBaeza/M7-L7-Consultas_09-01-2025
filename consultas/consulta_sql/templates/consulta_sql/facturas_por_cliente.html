@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facturas por Cliente</title>
+</head>
+<body>
+    <h1>Buscar Facturas por ID de Cliente</h1>
+    <form method="get">
+        <label for="cliente_id">ID del Cliente:</label>
+        <input type="number" id="cliente_id" name="cliente_id" value="{{ cliente_id|default:'' }}" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <h2>Resultados</h2>
+    {% if facturas %}
+        <table border="1">
+            <thead>
+                <tr>
+                    {% for columna in facturas.0.keys %}
+                        <th>{{ columna }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for factura in facturas %}
+                    <tr>
+                        {% for valor in factura.values %}
+                            <td>{{ valor }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>{% if cliente_id %}No se encontraron facturas para el cliente con ID {{ cliente_id }}.{% else %}Por favor, ingresa un ID de cliente para buscar.{% endif %}</p>
+    {% endif %}
+</body>
+</html>

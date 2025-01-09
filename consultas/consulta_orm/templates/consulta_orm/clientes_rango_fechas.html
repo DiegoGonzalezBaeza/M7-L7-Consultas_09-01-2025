@@ -1,0 +1,32 @@
+<h1>Clientes por Rango de Fechas</h1>
+<form method="get">
+    <label for="inicio">Fecha de inicio:</label>
+    <input type="date" id="inicio" name="inicio" value="{{ inicio }}">
+    
+    <label for="final">Fecha de final:</label>
+    <input type="date" id="final" name="final" value="{{ final }}">
+    
+    <button type="submit">Filtrar</button>
+</form>
+
+<h2>Resultados</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Fecha de Nacimiento</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente.id }}</td>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.apellidos }}</td>
+            <td>{{ cliente.fecha_nacimiento }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
