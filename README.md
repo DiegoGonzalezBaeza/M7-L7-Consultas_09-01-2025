@@ -119,11 +119,18 @@ M7-L7-Consultas/
 - Crear una interfaz de administración personalizada para manejar los datos.
 - Usar formularios para filtrar datos más dinámicamente.
 
+
+## setting.py
+
+```python
+LANGUAGE_CODE = 'en-sp'
+```
+
 ---
 
 ## Autor
 
-**Bastián Landskron**  
+**Diego Gonzalez**  
 Desarrollador de software y entusiasta de tecnologías backend.
 
 ---
